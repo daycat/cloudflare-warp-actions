@@ -9,7 +9,7 @@ runs:
       run: |
         sudo apt install curl wget -y
         wget https://pkg.cloudflareclient.com/uploads/cloudflare_warp_2022_5_346_1_amd64_ea02be46df.deb -O warp.deb && sudo dpkg -i warp.deb || true ; sudo apt-get -f install -y 
-        warp-cli register --accept-tos
+        warp-cli --accept-tos register
         warp-cli connect
         warp-cli set-mode warp+doh && sleep 1s
         curl https://cloudflare.com/cdn-cgi/trace
