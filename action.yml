@@ -1,7 +1,6 @@
 name: 'Cloudflare Warp setup'
 description: 'Set up Cloudflare Warp on Github actions running ubuntu'
 
-inputs:
 runs:
   using: composite
   steps:
@@ -12,3 +11,4 @@ runs:
         warp-cli connect
         warp-cli set-mode warp+doh && sleep 1s
         curl https://cloudflare.com/cdn-cgi/trace
+      shell: bash
