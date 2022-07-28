@@ -1,0 +1,14 @@
+name: 'Cloudflare Warp setup'
+description: 'Sets up Cloudflare Warp'
+
+inputs:
+runs:
+  using: composite
+  steps:
+    - run: |
+        sudo apt install curl wget -y
+        wget https://pkg.cloudflareclient.com/uploads/cloudflare_warp_2022_5_346_1_amd64_ea02be46df.deb -O warp.deb && dpkg -i warp.deb ; sudo apt-get -f install -y 
+        { echo y ; } | warp-cli register
+        warp-cli connect
+        warp-cli set-mode warp+doh
+        curl https://cloudflare.com/cdn-cgi/trace

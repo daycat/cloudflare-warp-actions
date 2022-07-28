@@ -1,0 +1,10 @@
+on: [push]
+
+jobs:
+  test_cloudflare_connect:
+    runs-on: ubuntu-latest
+    name: Connect to Cloudflare Warp
+    steps:
+      - uses: actions/checkout@v3
+      - uses: daycat/cloudflare-warp-actions@v1
+      
