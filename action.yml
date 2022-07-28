@@ -1,5 +1,5 @@
 name: 'Cloudflare Warp setup'
-description: 'Sets up Cloudflare Warp'
+description: 'Set up Cloudflare Warp on Github actions running ubuntu'
 
 inputs:
 runs:
