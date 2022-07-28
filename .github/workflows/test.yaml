@@ -6,4 +6,4 @@ jobs:
     name: Connect to Cloudflare Warp
     steps:
       - uses: actions/checkout@v3
-      - uses: daycat/cloudflare-warp-actions@v1
+      - uses: daycat/cloudflare-warp-actions@main
