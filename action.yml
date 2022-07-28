@@ -4,9 +4,11 @@ description: 'Set up Cloudflare Warp on Github actions running ubuntu'
 runs:
   using: composite
   steps:
-    - run: |
+    - name: Setup Warp
+      continue-on-error: true
+      run: |
         sudo apt install curl wget -y
-        wget https://pkg.cloudflareclient.com/uploads/cloudflare_warp_2022_5_346_1_amd64_ea02be46df.deb -O warp.deb && sudo dpkg -i warp.deb ; sudo apt-get -f install -y 
+        wget https://pkg.cloudflareclient.com/uploads/cloudflare_warp_2022_5_346_1_amd64_ea02be46df.deb -O warp.deb && sudo dpkg -i warp.deb || true ; sudo apt-get -f install -y 
         { echo y ; } | warp-cli register
         warp-cli connect
         warp-cli set-mode warp+doh && sleep 1s
