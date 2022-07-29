@@ -12,7 +12,7 @@ runs:
       shell: bash
     - name: Connect to Warp
       run: |
-        script -e -c { echo y; } | warp-cli register
+        script -e -c warp-cli --accept-tos register
         warp-cli connect
         warp-cli set-mode warp+doh && sleep 1s
         curl https://cloudflare.com/cdn-cgi/trace
